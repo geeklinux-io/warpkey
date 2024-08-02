@@ -9,6 +9,8 @@ You can directly access Warp KEY from the following URL (updated daily at 6:00AM
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite)
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full)
 
+You can also obtain it through my GitHub Pages:[CloudFlare WARP Key (geeklinux-io.github.io)](https://geeklinux-io.github.io/warpkey/)
+
 ## Private Deployment
 
 ### 1. Install Go

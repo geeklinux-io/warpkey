@@ -2,12 +2,14 @@
 
 [English](README.md) | [简体中文](README_CN.md)
 
-## 直接访问
+## 获取KEY
 
 可以从以下 URL 直接获取 Warp KEY（每天早上6点自动更新）：
 
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite)
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full)
+
+也可以通过我的GitHub Pages中获取：[CloudFlare WARP Key (geeklinux-io.github.io)](https://geeklinux-io.github.io/warpkey/)
 
 
 
