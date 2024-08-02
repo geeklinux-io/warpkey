@@ -4,7 +4,7 @@
 
 ## 获取KEY
 
-可以从以下 URL 直接获取 Warp KEY（每天早上6点自动更新）：
+可以从以下 URL 直接获取 Warp KEY（每隔一小时更新数据）：
 
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite)
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full)
