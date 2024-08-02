@@ -41,6 +41,10 @@ chmod a+x build.sh
 
 The tool will collect keys from Telegram and save them in the `/data` directory under the current directory.
 
+## 5. Auto Update
+
+You can use crontab to schedule tasks to execute the `update.sh `script in your project and submit the updates to your GitHub repository
+
 ## License
 
 This project is licensed under the MIT License. For more details, please see the [LICENSE](LICENSE) file.

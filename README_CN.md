@@ -41,7 +41,11 @@ chmod a+x build.sh
 ./build.sh
 ```
 
-该工具将从 Telegram 收集密钥，并将其保存在当前目录下的`/data`目录中
+该工具将从 Telegram 收集密钥，并将其保存在当前目录下的`/data`目录中。
+
+## 5. 自动更新
+
+您可以使用crontab计划任务执行项目中的update.sh脚本，并将更新提交到您的GitHub存储库中。
 
 ## 许可
 
