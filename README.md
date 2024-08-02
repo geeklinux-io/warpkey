@@ -4,7 +4,7 @@
 
 ## Direct Access
 
-You can directly access Warp KEY from the following URL (updated daily):
+You can directly access Warp KEY from the following URL (updated daily at 6:00AM):
 
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite)
 - [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full)
