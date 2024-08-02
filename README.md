@@ -6,7 +6,8 @@
 
 You can directly access Warp KEY from the following URL (updated daily):
 
-- 
+- [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite)
+- [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full)
 
 ## Private Deployment
 

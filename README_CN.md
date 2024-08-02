@@ -6,7 +6,10 @@
 
 可以从以下 URL 直接获取 Warp KEY（每天更新）：
 
-- 
+- [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/lite)
+- [https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full](https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/full)
+
+
 
 ## 私有化部署
 

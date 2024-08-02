@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudFlare WARP Key</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@5.4.0/dist/reset.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/element-ui/lib/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-i18n@8.24.5/dist/vue-i18n.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #app {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .header {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .el-menu {
+      line-height: 64px;
+    }
+    .el-menu-item {
+      padding: 0 20px;
+    }
+    .el-menu-item.is-active {
+      background-color: #f5f5f5;
+    }
+    .language-switcher {
+      display: flex;
+      align-items: center;
+    }
+    .language-switcher a {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <a-layout>
+      <a-layout-header class="header">
+        <el-menu :default-active="selectedMenu" mode="horizontal" class="el-menu" @select="handleMenuSelect">
+          <el-menu-item index="full">{{ $t('menu.fullVersion') }}</el-menu-item>
+          <el-menu-item index="lite">{{ $t('menu.liteVersion') }}</el-menu-item>
+          <el-menu-item index="about">{{ $t('menu.about') }}</el-menu-item>
+          <el-menu-item index="github" @click="goToGitHub">{{ $t('menu.github') }}</el-menu-item>
+          <el-menu-item index="releases" @click="goToReleases">{{ $t('menu.releases') }}</el-menu-item>
+        </el-menu>
+        <div class="language-switcher">
+          <a @click="switchLanguage('en')">{{ $t('language.en') }}</a>
+          <a @click="switchLanguage('zh')">{{ $t('language.zh') }}</a>
+        </div>
+      </a-layout-header>
+      <a-layout-content style="padding: 20px;">
+        <div v-if="selectedMenu === 'about'">
+          <h2>{{ $t('about.title') }}</h2>
+          <p>{{ $t('about.description') }}</p>
+          <p>{{ $t('about.blog') }}: <a href="https://geeklinux.cn" target="_blank">geeklinux.cn</a></p>
+          <p>{{ $t('about.readme') }}: <a href="https://raw.githubusercontent.com/geeklinux-io/warpkey/main/README.md" target="_blank">README</a></p>
+          <p>{{ $t('about.update') }}</p>
+        </div>
+        <el-table v-if="selectedMenu !== 'about'" :data="keys" style="margin-top: 20px;">
+          <el-table-column prop="key" label="Key" width="250">
+            <template slot-scope="scope">
+              <span>{{ scope.row.key }}</span>
+            </template>
+          </el-table-column>
+        </el-table>
+      </a-layout-content>
+      <div class="footer">
+        <p>&copy; 2024 CloudFlare WARP Key Collection Tool. Licensed under the MIT License.</p>
+      </div>
+    </a-layout>
+  </div>
+
+  <script>
+    const messages = {
+      en: {
+        menu: {
+          fullVersion: 'Full Version',
+          liteVersion: 'Lite Version',
+          about: 'About',
+          github: 'GitHub',
+          releases: 'Releases'
+        },
+        about: {
+          title: 'About',
+          description: 'This project is a CloudFlare WARP key collection tool. It fetches keys from Telegram and stores them locally.',
+          blog: 'You can find more information and updates on my blog',
+          readme: 'For more details, please refer to the',
+          update: 'Keys are updated to GitHub daily at 6 AM. You can directly obtain the latest key from this website.',
+        },
+        language: {
+          en: 'English',
+          zh: '中文'
+        }
+      },
+      zh: {
+        menu: {
+          fullVersion: '完整版',
+          liteVersion: '精简版',
+          about: '关于',
+          github: 'GitHub',
+          releases: 'Releases'
+        },
+        about: {
+          title: '关于',
+          description: '该项目是一个 CloudFlare WARP 密钥收集工具。它从 Telegram 获取密钥并将其存储在本地。',
+          blog: '你可以在我的博客中找到更多信息和更新',
+          readme: '有关详细信息，请参阅',
+          update: '密钥每天早上6点会更新到 GitHub。你可以通过本站获取',
+        },
+        language: {
+          en: 'English',
+          zh: '中文'
+        }
+      }
+    };
+
+    new Vue({
+      el: '#app',
+      i18n: new VueI18n({
+        locale: localStorage.getItem('lang') || 'en', // Load language from local storage
+        messages
+      }),
+      data() {
+        return {
+          selectedMenu: 'full',
+          keys: []
+        };
+      },
+      methods: {
+        fetchKeys() {
+          if (this.selectedMenu === 'about') return;
+          axios.get(`https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/${this.selectedMenu}`)
+            .then(response => {
+              this.keys = response.data.trim().split('\n').map(key => ({ key }));
+            })
+            .catch(error => {
+              console.error('Error fetching keys:', error);
+            });
+        },
+        handleMenuSelect(index) {
+          this.selectedMenu = index;
+          if (index !== 'about') this.fetchKeys();
+        },
+        switchLanguage(lang) {
+          this.$i18n.locale = lang;
+          localStorage.setItem('lang', lang); // Save language to local storage
+          // Redirect to home page
+          window.location.href = `index.html?lang=${lang}`;
+        },
+        goToGitHub() {
+          window.open('https://github.com/geeklinux-io/warpkey', '_blank');
+        },
+        goToReleases() {
+          window.open('https://github.com/geeklinux-io/warpkey/releases', '_blank');
+        }
+      },
+      mounted() {
+        this.fetchKeys();
+      }
+    });
+  </script>
+</body>
+</html>
