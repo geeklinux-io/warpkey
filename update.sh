@@ -25,7 +25,7 @@ cd "$PROJECT_DIR" || exit 1
 
 if git status --porcelain | grep -q '^'; then
     current_time=$(date +"%Y-%m-%d %H:%M:%S")
-    git add .
+    git add ./data
     git commit -m "🚀Automatic update - $current_time"
     git push || exit 1
 else
