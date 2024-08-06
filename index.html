@@ -75,7 +75,7 @@
           <h2>{{ $t('about.title') }}</h2>
           <p>{{ $t('about.description') }}</p>
           <p>{{ $t('about.blog') }}: <a href="https://geeklinux.cn" target="_blank">geeklinux.cn</a></p>
-          <p>{{ $t('about.readme') }}: <a href="https://raw.githubusercontent.com/geeklinux-io/warpkey/main/README.md" target="_blank">README</a></p>
+          <p>{{ $t('about.readme') }}: <a href="https://ghproxy.cn/https://raw.githubusercontent.com/geeklinux-io/warpkey/main/README.md" target="_blank">README</a></p>
           <p>{{ $t('about.update') }}</p>
         </div>
         <el-table v-if="selectedMenu !== 'about'" :data="keys" style="margin-top: 20px;">
@@ -151,7 +151,7 @@
       methods: {
         fetchKeys() {
           if (this.selectedMenu === 'about') return;
-          axios.get(`https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/${this.selectedMenu}`)
+          axios.get(`https://ghproxy.cn/https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/${this.selectedMenu}`)
             .then(response => {
               this.keys = response.data.trim().split('\n').map(key => ({ key }));
             })
