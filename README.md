@@ -38,8 +38,12 @@ Once the Go environment is set up, you can use the following command to package 
 chmod a+x build.sh
 ./build.sh
 ```
+You can find the program you have compiled in the `./build` directory under the current directory.
 
-The tool will collect keys from Telegram and save them in the `/data` directory under the current directory.
+The tool will collect keys from Telegram and save them in the `./data` directory under the current directory.
+
+If you want to request the CloudFlare Key through a specific Socket or HTTP proxy, you can use the -- proxy parameter. Of course, you can also use the program - h to view specific usage help
+
 
 ## 5. Auto Update
 

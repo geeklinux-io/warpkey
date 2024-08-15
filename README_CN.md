@@ -41,7 +41,11 @@ chmod a+x build.sh
 ./build.sh
 ```
 
+构建好的应用程序会自动放置到当前所在目录的`build`目录中。
+
 该工具将从 Telegram 收集密钥，并将其保存在当前目录下的`/data`目录中。
+
+你也可以通过特定的Socket 或者HTTP代理去请求获取 CloudFlare Key 可以使用 --proxy 参数，当然，你也可以使用 程序 -h 查看具体的使用帮助。
 
 ## 5. 自动更新
 
