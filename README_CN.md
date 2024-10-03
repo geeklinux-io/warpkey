@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README_CN.md)
 
+我的博客：https://www.wanghaoyu.com.cn/archives/cloudflare-warp-key.html
+
 ## 获取KEY
 
 可以从以下 URL 直接获取 Warp KEY（每隔一小时更新数据）：
