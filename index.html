@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/element-ui/lib/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-i18n@8.24.5/dist/vue-i18n.min.js"></script>
-  <script defer src="https://stat.geeklinux.cn/script.js" data-website-id="6356ad68-4066-4b3f-845f-d09517d940ce"></script>
+  <script defer src="https://stat.wanghaoyu.com.cn/script.js" data-website-id="6356ad68-4066-4b3f-845f-d09517d940ce"></script>
   <style>
     body {
       margin: 0;
@@ -75,8 +75,8 @@
         <div v-if="selectedMenu === 'about'">
           <h2>{{ $t('about.title') }}</h2>
           <p>{{ $t('about.description') }}</p>
-          <p>{{ $t('about.blog') }}: <a href="https://geeklinux.cn" target="_blank">geeklinux.cn</a></p>
-          <p>{{ $t('about.readme') }}: <a href="https://ghproxy.geeklinux.cn/https://raw.githubusercontent.com/geeklinux-io/warpkey/main/README.md" target="_blank">README</a></p>
+          <p>{{ $t('about.blog') }}: <a href="https://wanghaoyu.com.cn" target="_blank">wanghaoyu.com.cn</a></p>
+          <p>{{ $t('about.readme') }}: <a href="https://ghproxy.cnproxy.top/https://raw.githubusercontent.com/geeklinux-io/warpkey/main/README.md" target="_blank">README</a></p>
           <p>{{ $t('about.update') }}</p>
         </div>
         <el-table v-if="selectedMenu !== 'about'" :data="keys" style="margin-top: 20px;">
@@ -152,7 +152,7 @@
       methods: {
         fetchKeys() {
           if (this.selectedMenu === 'about') return;
-          axios.get(`https://ghproxy.geeklinux.cn/https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/${this.selectedMenu}`)
+          axios.get(`https://ghproxy.cnproxy.top/https://raw.githubusercontent.com/geeklinux-io/warpkey/main/data/${this.selectedMenu}`)
             .then(response => {
               this.keys = response.data.trim().split('\n').map(key => ({ key }));
             })
