@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "warpkey-edge-console",
+  "main": "src/index.tsx",
+  "compatibility_date": "2026-07-17",
+  "workers_dev": true,
+  "vars": {
+    "APP_NAME": "WarpKey Edge Console",
+    "COLLECTION_CRON": "7 * * * *",
+    "PUBLIC_BASE_URL": "",
+    "WEBHOOK_ENABLED": "false",
+    "WEBHOOK_URL": "",
+    "WEBHOOK_SECRET": "",
+    "WEBHOOK_EVENTS": "keys.changed,collection.failed"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "warpkey-edge-console-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    "crons": ["7 * * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
