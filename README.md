@@ -108,10 +108,10 @@ Application settings live in [`wrangler.jsonc`](wrangler.jsonc).
 | --- | --- | --- |
 | `APP_NAME` | `WarpKey Edge Console` | Service name returned by the health endpoint. |
 | `COLLECTION_CRON` | `7 * * * *` | Informational copy of the Cron schedule. The actual trigger is configured under `triggers.crons`. |
-| `PUBLIC_BASE_URL` | Empty | Public deployment URL included in webhook payload links. |
+| `PUBLIC_BASE_URL` | Unset | Optional public deployment URL included in webhook payload links. |
 | `WEBHOOK_ENABLED` | `false` | Set to `true` to enable webhook delivery. |
-| `WEBHOOK_URL` | Empty | HTTPS endpoint receiving webhook POST requests. |
-| `WEBHOOK_SECRET` | Empty | Optional HMAC-SHA256 signing secret. |
+| `WEBHOOK_URL` | Unset | HTTPS endpoint receiving webhook POST requests. |
+| `WEBHOOK_SECRET` | Unset | Optional HMAC-SHA256 signing secret. |
 | `WEBHOOK_EVENTS` | `keys.changed,collection.failed` | Comma-separated events to deliver. |
 
 The default Cron configuration is:

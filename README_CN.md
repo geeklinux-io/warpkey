@@ -108,10 +108,10 @@ D1_DATABASE_ID=<existing-d1-uuid> pnpm deploy
 | --- | --- | --- |
 | `APP_NAME` | `WarpKey Edge Console` | 健康检查返回的服务名称。 |
 | `COLLECTION_CRON` | `7 * * * *` | Cron 计划的说明值；实际触发计划在 `triggers.crons`。 |
-| `PUBLIC_BASE_URL` | 空 | Webhook payload 中使用的公开部署地址。 |
+| `PUBLIC_BASE_URL` | 未配置 | 可选的 Webhook payload 公开部署地址。 |
 | `WEBHOOK_ENABLED` | `false` | 设置为 `true` 后启用推送。 |
-| `WEBHOOK_URL` | 空 | 接收 POST 请求的 HTTPS 地址。 |
-| `WEBHOOK_SECRET` | 空 | 可选的 HMAC-SHA256 签名密钥。 |
+| `WEBHOOK_URL` | 未配置 | 接收 POST 请求的 HTTPS 地址。 |
+| `WEBHOOK_SECRET` | 未配置 | 可选的 HMAC-SHA256 签名密钥。 |
 | `WEBHOOK_EVENTS` | `keys.changed,collection.failed` | 需要推送的事件，使用逗号分隔。 |
 
 默认 Cron：

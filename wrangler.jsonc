@@ -7,10 +7,7 @@
   "vars": {
     "APP_NAME": "WarpKey Edge Console",
     "COLLECTION_CRON": "7 * * * *",
-    "PUBLIC_BASE_URL": "",
     "WEBHOOK_ENABLED": "false",
-    "WEBHOOK_URL": "",
-    "WEBHOOK_SECRET": "",
     "WEBHOOK_EVENTS": "keys.changed,collection.failed"
   },
   "d1_databases": [
